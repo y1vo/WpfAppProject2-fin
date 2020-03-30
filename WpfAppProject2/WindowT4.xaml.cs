@@ -100,14 +100,17 @@ namespace WpfAppProject2
             window.Show();
             this.Visibility = Visibility.Hidden;
         }
+
         private void BtnAddPic_Click(object sender, RoutedEventArgs e)
         {
+            Person person = new Person();
             OpenFileDialog openFile = new OpenFileDialog();
             openFile.Filter = "Image Files(*.BMP; *.JPG; *.PNG; *.JPEG)|*.BMP; *.JPG; *.PNG; *.JPEG)| All files (*.*)|*.*";
             if (openFile.ShowDialog() == true)
             {
                 pictureFilePath = openFile.FileName;
                 img1.Source = new BitmapImage(new Uri(pictureFilePath));
+                person.ImagePath = openFile.FileName;
             }
         }
     }

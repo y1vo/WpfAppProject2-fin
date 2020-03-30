@@ -1,6 +1,4 @@
-﻿using iTextSharp.text;
-using iTextSharp;
-using iTextSharp.text.pdf;
+﻿
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -17,6 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Spire.Doc;
+using Spire.Doc.Documents;
+using Spire.Doc.Fields;
+using System.Drawing;
+using Section = Spire.Doc.Section;
 
 namespace WpfAppProject2
 {
@@ -41,10 +43,10 @@ namespace WpfAppProject2
             SaveFileDialog fileDialog = new SaveFileDialog();
             Person person = new Person();
             string path = person.FilePath;
+            string imgPath = person.ImagePath;
 
             fileDialog.Filter = "Text documents (.pdf)|*.pdf";
             fileDialog.Title = "Save an Pdf File";
-            fileDialog.ShowDialog();
 
             if (fileDialog.ShowDialog() == true)
             {
@@ -52,18 +54,17 @@ namespace WpfAppProject2
                 string extesion = System.IO.Path.GetExtension(fileName);
                 switch (extesion)
                 {
-                    case ".pdf"://do something here   
-                        StreamReader rdr = new StreamReader(path);
-                        iTextSharp.text.Document doc = new iTextSharp.text.Document();
-                        PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create));
-                        doc.Open();
-
-                        doc.Add(new iTextSharp.text.Paragraph(rdr.ReadToEnd()));
-                        doc.Close();
-
+                    case ".pdf":  
+                        Spire.Doc.Document document = new Spire.Doc.Document();
+                        document.LoadText(path);
+                        document.SaveToFile(fileName, FileFormat.PDF);
+                        
+                        document.Close();
                         MessageBox.Show("Conversion Successful....");
                         break;
                 }
+
+
             }
             //  this.Close();
         }
@@ -78,8 +79,7 @@ namespace WpfAppProject2
 
             fileDialog.Filter = "Text documents (.doc)|*.doc";
             fileDialog.Title = "Save an Doc File";
-            fileDialog.ShowDialog();
-           
+
             if (fileDialog.ShowDialog() == true)
             {
                 string fileName = fileDialog.FileName;
@@ -114,7 +114,6 @@ namespace WpfAppProject2
 
             fileDialog.Filter = "Text documents (.docx)|*.docx";
             fileDialog.Title = "Save an Docx File";
-            fileDialog.ShowDialog();
 
             if (fileDialog.ShowDialog() == true)
             {
@@ -134,6 +133,13 @@ namespace WpfAppProject2
                 }
             }
 
+
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Environment.Exit(0);
 
         }
     }

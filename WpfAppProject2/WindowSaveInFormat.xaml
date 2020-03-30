@@ -15,7 +15,6 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -27,9 +26,10 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="Сохранить резюме как?" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3 " FontSize="30" HorizontalContentAlignment="Center"></Label>
-        <Button x:Name="btnPdf" Grid.Column="0" Grid.Row="3" Content="pdf" FontSize="20" Click="BtnPdf_Click" Background="DarkSeaGreen"></Button>
-        <Button x:Name="btnDoc" Grid.Column="2" Grid.Row="3" Content="doc" FontSize="20" Click="BtnDoc_Click" Background="DarkSeaGreen"></Button>
-        <Button x:Name="btnDocx" Grid.Column="4" Grid.Row="3" Content="docx" FontSize="20" Click="BtnDocx_Click" Background="DarkSeaGreen"></Button>
-        <Button x:Name="btnCancel" Grid.Column="2" Grid.Row="5" Content="Отмена" FontSize="20" Click="BtnCancel_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnPdf" Grid.Column="0" Grid.Row="2" Content="pdf" FontSize="20" Click="BtnPdf_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnDoc" Grid.Column="2" Grid.Row="2" Content="doc" FontSize="20" Click="BtnDoc_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnDocx" Grid.Column="4" Grid.Row="2" Content="docx" FontSize="20" Click="BtnDocx_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnCancel" Grid.Column="1" Grid.Row="4" Content="Отмена" FontSize="20" Click="BtnCancel_Click" Background="DarkSeaGreen"></Button>
+        <Button x:Name="btnClose" Grid.Column="3" Grid.Row="4" Content="Выход" FontSize="20" Click="BtnClose_Click" Background="DarkSeaGreen"></Button>
     </Grid>
 </Window>

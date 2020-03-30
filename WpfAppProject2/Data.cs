@@ -34,9 +34,11 @@ namespace WpfAppProject2
         private string pictureFilePath;
         private string position;
         private string course;
-        
+        private string imagePath;
+
         public List<string> PersonalData { get => personalData; set => personalData = value; }
         public string FilePath { get => filePath; set => filePath = value; }
+        public string ImagePath { get => filePath; set => filePath = value; }
         public string Template { get => template; set => template = value; }
         public string FullName { get => fullName; set => fullName = value; }
         public string Address { get => address; set => address = value; }
